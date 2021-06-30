@@ -1,25 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import './dashboard.css'
+import Header from './components/admin/header';
+import Nav from './components/admin/nav';
+import Main from './components/admin/main';
 
-function App() {
+export default function App() {
+  const products = [
+    {id: 1, name: "product 1", price: 200, status: true},
+    {id: 2, name: "product 2", price: 300, status: false},
+    {id: 3, name: "product 3", price: 400, status: true},
+  ]
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="">
+      <div>
+        <Header />
+        <div className="container-fluid">
+          <div className="row">
+            <Nav />
+            <Main products={products}/>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
 
-export default App;
+
+// export default App;
