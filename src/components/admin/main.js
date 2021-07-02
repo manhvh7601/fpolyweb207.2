@@ -24,7 +24,7 @@ export default function Main(props) {
             {
             props.products.map((product, index) => (
               <tr key={index}>
-                <td>{index}</td>
+                <td>{index + 1}</td>
                 <td>{product.name}</td>
                 <td>{product.price}đ</td>
                 <td>
@@ -34,7 +34,9 @@ export default function Main(props) {
                     <span className="text-danger">Hết hàng</span>
                   )}
                 </td>
-                <td>layout</td>
+                <td><button onClick={() => props.onAdd(product.id)}>
+                  Detele
+                </button></td>
               </tr>
             ))
             }
