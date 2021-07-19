@@ -1,38 +1,63 @@
-import './dashboard.css'
-import Header from './components/admin/header';
-import Nav from './components/admin/nav';
-import Main from './components/admin/main';
-import { useState } from 'react';
+import "./dashboard.css";
+import { useEffect, useState } from "react";
+import Routes from "./routes";
+import { edit } from "./api/productAPI";
 
 export default function App() {
-  // const products = [
-  //   {id: 1, name: "product 1", price: 200, status: true},
-  //   {id: 2, name: "product 2", price: 300, status: false},
-  //   {id: 3, name: "product 3", price: 400, status: true},
-  // ];
-  const [products, setProducts] = useState([
-    {id: 1, name: "product 1", price: 200, status: true},
-    {id: 2, name: "product 2", price: 300, status: false},
-    {id: 3, name: "product 3", price: 400, status: true},
-  ]);
-  const onHandleAdd = (id) => {
-    const newProducts = products.filter(item => item.id != id);
+  const [products, setProducts] = useState([]);
+  const API = "http://localhost:4000/products";
+
+  useEffect(() => {
+    const getProducts = async () => {
+      try {
+        const response = await fetch(API);
+        const data = await response.json();
+        setProducts(data);
+      } catch (error) {
+        console.log("error", error);
+      }
+    };
+    getProducts();
+  }, []);
+  //Delete product
+  const onRemoveHandler = async (id) => {
+    const response = await fetch(`${API}/${id}`, {
+      method: "DELETE",
+    });
+    const data = await response.json();
+    const newProducts = products.filter((item) => item.id !== id);
     setProducts(newProducts);
-  }
+  };
+  //Add product
+  const onAddHandler = async (item) => {
+    const response = await fetch(API, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(item),
+    });
+    const data = await response.json();
+    setProducts([...products, data]);
+  };
+  //Edit Product
+  const onEditHandler = async (item) => {
+    try {
+      const { data } = await edit(item);
+      const newProducts = products.map((product) =>
+        product.id == item.id ? data : product
+      );
+      setProducts(newProducts);
+    } catch (error) {}
+  };
   return (
-    <div className="">
-      <div>
-        <Header />
-        <div className="container-fluid">
-          <div className="row">
-            <Nav />
-            <Main products={products} onAdd={onHandleAdd} />
-          </div>
-        </div>
-      </div>
-    </div>
+    <Routes
+      products={products}
+      onRemove={onRemoveHandler}
+      onAdd={onAddHandler}
+      onEdit={onEditHandler}
+    />
   );
 }
 
-
-// export default App;
+// APP || MAIN || ADD;

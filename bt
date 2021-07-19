@@ -1,0 +1,11 @@
+- Tạo form Đăng ký
+    + email
+    + tên
+    + password
+- Đăng nhập
+    + email
+    + password
+- React-hook-form để lấy giá trị
+- tạo router: /signup -> sang page signup
+- tạo router: /sigin -> sang page signin
+- cài đặt https://github.com/jeremyben/json-server-auth
