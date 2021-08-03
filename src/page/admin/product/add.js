@@ -1,4 +1,5 @@
 import { useForm } from "react-hook-form";
+import { useHistory } from "react-router-dom";
 
 const AddFormProduct = (props) => {
   const {
@@ -6,12 +7,14 @@ const AddFormProduct = (props) => {
     handleSubmit,
     formState: { errors },
   } = useForm();
+  const history = useHistory();
   const onSubmit = (data) => {
     const fakeValue = {
       id: Math.random().toString(36).substring(7),
       ...data,
     };
     props.onAdd(fakeValue);
+    history.push("/admin/product");
   };
   //   const onHandleSubmit = (e) => {
   //     e.preventDefault();
@@ -36,6 +39,14 @@ const AddFormProduct = (props) => {
             {...register("name", { required: true })}
           />
         </div>
+        <div className="form-group">
+        <label className="form-label">Ảnh sản phẩm</label>
+          <input
+            type="file"
+            className="form-control"
+            {...register("image", { required: true })}
+          />
+        </div>
         <div className="mb-3">
           <label className="form-label">Giá sản phẩm</label>
           <input
@@ -52,8 +63,9 @@ const AddFormProduct = (props) => {
             // name="status"
             {...register("status", { required: true })}
           >
-            <option value="false">Hết hàng</option>
-            <option value="true">Còn hàng</option>
+            <option value=""></option>
+            <option value={0}>Hết hàng</option>
+            <option value={1}>Còn hàng</option>
           </select>
         </div>
         <button type="submit" className="btn btn-primary">

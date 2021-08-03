@@ -14,7 +14,7 @@ export default function App() {
         const data = await response.json();
         setProducts(data);
       } catch (error) {
-        console.log("error", error);
+        console.log("error", error);  
       }
     };
     getProducts();
@@ -45,7 +45,7 @@ export default function App() {
     try {
       const { data } = await edit(item);
       const newProducts = products.map((product) =>
-        product.id == item.id ? data : product
+        product.id === item.id ? data : product
       );
       setProducts(newProducts);
     } catch (error) {}

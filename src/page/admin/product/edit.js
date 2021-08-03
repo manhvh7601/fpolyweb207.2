@@ -13,6 +13,7 @@ const EditFormProduct = (props) => {
       try {
         const { data } = await get(id);
         setProduct(data);
+        reset(data);
       } catch (error) {}
     };
     getProduct();
@@ -21,6 +22,7 @@ const EditFormProduct = (props) => {
     register,
     handleSubmit,
     formState: { errors },
+    reset
   } = useForm();
   const onSubmit = (data) => {
     const fakeValue = {
@@ -29,7 +31,7 @@ const EditFormProduct = (props) => {
     };
     // console.log(fakeValue);
     props.onEdit(fakeValue);
-    history.push("/product");
+    history.push("/admin/product");
   };
   return (
     <div>
@@ -78,8 +80,9 @@ const EditFormProduct = (props) => {
             // onChange={onHandleChange}
             {...register("status")}
           >
-            <option value="false">Hết hàng</option>
-            <option value="true">Còn hàng</option>
+            <option value=""></option>
+            <option value={0}>Hết hàng</option>
+            <option value={1}>Còn hàng</option>
           </select>
         </div>
         <button type="submit" className="btn btn-primary">

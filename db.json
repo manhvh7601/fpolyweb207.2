@@ -1,0 +1,90 @@
+{
+  "products": [
+    {
+      "name": "Licensed Granite Ball",
+      "image": "http://placeimg.com/640/480/nightlife",
+      "price": "805.00",
+      "status": true,
+      "desc": "Carbonite web goalkeeper gloves are ergonomically designed to give easy fit",
+      "id": "1"
+    },
+    {
+      "id": "2",
+      "name": "Generic Granite Bal2",
+      "price": "58",
+      "status": "false"
+    },
+    {
+      "name": "Intelligent Wooden Ball",
+      "image": "http://placeimg.com/640/480/nature",
+      "price": "906.00",
+      "status": true,
+      "desc": "Carbonite web goalkeeper gloves are ergonomically designed to give easy fit",
+      "id": "3"
+    },
+    {
+      "name": "Gorgeous Plastic Table",
+      "image": "http://placeimg.com/640/480/sports",
+      "price": "123.00",
+      "status": false,
+      "desc": "The Nagasaki Lander is the trademarked name of several series of Nagasaki sport bikes, that started with the 1984 ABC800J",
+      "id": "5"
+    },
+    {
+      "id": "aodux",
+      "name": "Monster2",
+      "price": "40000",
+      "status": false
+    },
+    {
+      "id": "wrqizo",
+      "name": "Monster 112",
+      "price": "40000",
+      "status": "true"
+    },
+    {
+      "id": "oh9sga",
+      "name": "Monster2",
+      "price": "123",
+      "status": false
+    },
+    {
+      "id": "qtamp",
+      "name": "Monster2",
+      "price": "40000",
+      "status": "1"
+    },
+    {
+      "id": "99zffx",
+      "name": "movie 1",
+      "price": "52213",
+      "status": "0"
+    }
+  ],
+  "users": [
+    {
+      "email": "admin@gmail.com",
+      "password": "$2a$10$ap0R3TXFo7Qm/U5LyyQbeOJdjCWp59P2XNcY2Hm.fjZVkhLh0FrBK",
+      "username": "admin",
+      "id": 1
+    },
+    {
+      "email": "vumanh7621@gmail.com",
+      "password": "$2a$10$NJ.WpXpN8dcBPkaMXuEape5ISrSTX34.IlhEkZ3MDL9VDQw4qWygO",
+      "username": "manhvh7601",
+      "id": 2
+    },
+    {
+      "email": "vumanh211@gmail.com",
+      "password": "$2a$10$Rrv5E4ssJA3a0f8YlNxLvuAgICWCybxIu1XEDxdJxRDRILUoIT7c2",
+      "username": "manhvh",
+      "id": 3
+    },
+    {
+      "email": "vumanh762001@gmail.com",
+      "password": "$2a$10$12QP4WKEq/eHyWY6REkO3.8Kd6g9gmTQlXvRSpiAn3F.Kxv0C6Ig.",
+      "username": "manhvh7621",
+      "id": 4
+    }
+  ]
+}
